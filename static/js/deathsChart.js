@@ -1,12 +1,12 @@
 function makeChart(data) {
-    var confirmedOptions = {
+    var deathsOptions = {
         chart: {
         },
         credits: {
             enabled: false
         },
         title: {
-            text: 'Daily new cases'
+            text: 'Daily new deaths'
         },
         subtitle: {
             text: data['general']['country']
@@ -34,25 +34,21 @@ function makeChart(data) {
                 // pointPadding: 0.5,
                 // groupPadding: 1,
                 crisp: false,
-            },
-            area: {
-                lineWidth: 3,
-                fillOpacity: 0.2
             }
         },
         series: [
             {
-                name: 'Daily new cases',
+                name: 'Daily new deaths',
                 type:'column',
-                data: data['time_series']['daily_confirmed']
+                data: data['time_series']['daily_deaths']
             },
             {
                 name: '7MA',
                 type:'line',
                 enableMouseTracking: false,
-                data: data['time_series']['7MA_daily_confirmed']
+                data: data['time_series']['7MA_daily_deaths']
             }
         ]
     }
-    var chart = Highcharts.chart('confirmedChart', confirmedOptions);
+    var chart = Highcharts.chart('deathChart', deathsOptions);
 }

@@ -5,15 +5,18 @@
 {{ dailyInfo(data['general']) }}
 
 <figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-        Example chart 
-    </p>
+    <div id="confirmedChart" style="max-width: 800px; margin:0 auto;"></div>
+    <div id="deathChart" style="max-width: 800px; margin:0 auto;"></div>
 </figure>
 
 <script src="{{ url_for('static', filename='js/confirmedChart.js') }}"> </script>
 <script type="text/javascript">
-    makeChart( {{ data.time_series | tojson | safe }} ) 
+    makeChart( {{ data | tojson | safe }} ) 
+</script>
+
+<script src="{{ url_for('static', filename='js/deathsChart.js') }}"> </script>
+<script type="text/javascript">
+    makeChart( {{ data | tojson | safe }} ) 
 </script>
 
 {% endblock %}

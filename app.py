@@ -12,9 +12,9 @@ def example():
 
 @app.route('/country/<string:country>')
 def country(country):
-    data_url = f'https://raw.githubusercontent.com/carloscerlira/COVID-19-Tracker/master/data/world/{country}.json'
+    data_url = f'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/master/data/time_series/{country}.json'
     data = requests.get(data_url).json()
     return render_template('countryInfo.html', data=data)   
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
