@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% from "macros/dailyInfo.html" import dailyInfo %}
+{% block content %}
+
+{{ dailyInfo(data['general']) }}
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Example chart 
+    </p>
+</figure>
+
+<script src="{{ url_for('static', filename='js/confirmedChart.js') }}"> </script>
+<script type="text/javascript">
+    makeChart( {{ data.time_series | tojson | safe }} ) 
+</script>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% from "macros/macroTemplate.html" import writeText %}
+{% block content %}
+
+<p> Hello World </p>
+{% include "includeTemplate.html" %}
+{{ writeText('macrosTemplate') }}
+<script src="{{ url_for('static', filename='js/jsExample.js') }}"> </script>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+p {
+    font-family: Verdana, Geneva, sans-serif;
+    color: rgb(40, 50, 78);
+    font-size: 20px;
+  }
+  
+  p.title {
+    font-family: Verdana, Geneva, sans-serif;
+    color: rgb(40, 50, 78);
+    font-size: 28px;
+  }
+  
+  .pagination>li.active>a {
+    background-color: rgb(40, 50, 78) !important;
+  }
+  .page-item.active .page-link {
+    border-color:  rgb(40, 50, 78);
+  }
+  .page-link {
+    color: rgb(40, 50, 78);
+  }
+  .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 50px;
+    line-height: 50px;
+  }
+  .navbar-nav .nav-link {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 50px;
+    line-height: 50px;
+  }
