@@ -16,11 +16,16 @@ var dailyDeathsOptions = {
     yAxis: {
         title: false,
         visible: false,
-        endOnTick: false 
+        endOnTick: false,
+        min: 0
+    },
+    tooltip: {
+        valueDecimals: 0
     },
     plotOptions: {
         series: {
-            pointInterval: 24*3600*1000,
+            pointStart: general['start'],
+            pointInterval: 24*3600*1000
         },
         line: {
             color: '#0056bf',

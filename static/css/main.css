@@ -1,13 +1,27 @@
+h1 {
+  font-family: Verdana, Geneva, sans-serif;
+  color: rgb(40, 50, 78);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: Verdana, Geneva, sans-serif;
+  color: rgb(40, 50, 78);
+  font-size: 16px;
+  font-weight: bolder;
+}
+
 p {
   font-family: Verdana, Geneva, sans-serif;
   color: rgb(40, 50, 78);
-  font-size: 20px;
+  font-size: 14px;
 }
   
 p.title {
   font-family: Verdana, Geneva, sans-serif;
   color: rgb(40, 50, 78);
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .pagination>li.active>a {
