@@ -1,5 +1,5 @@
-function makeChart(data) {
-    var confirmedOptions = {
+function makeChart(series) {
+    var dailyConfirmedOptions = {
         chart: {
         },
         credits: {
@@ -9,15 +9,15 @@ function makeChart(data) {
             text: 'Daily new cases'
         },
         subtitle: {
-            text: data['general']['country']
+            text: general['country']
         },
         xAxis: {
             type: 'datetime'
         },
         yAxis: {
-            title: false,
             visible: false,
-            endOnTick: false 
+            endOnTick: false, 
+            min: 0
         },
         plotOptions: {
             series: {
@@ -25,21 +25,30 @@ function makeChart(data) {
             },
             line: {
                 color: '#0056bf',
-                lineWidth: 1
             },
             column: {
                 shadow: false,
                 borderWidth: 0,
+                groupPadding: 0.3,
                 crisp: false,
+            },
+            area: {
+                color: '#0056bf',
+                fillOpacity: 0.15,
             }
         },
         series: [
             {
-                name: 'Mexico',
-                type:'line',
-                data: data['time_series']['confirmed']
+                name: 'Daily new cases',
+                type:'column',
+                data: series['daily_confirmed']
+            },
+            {
+                name: '7MA',
+                type:'area',
+                data: series['7MA_daily_confirmed']
             }
         ]
     }
-    var chart = Highcharts.chart('confirmedChart', confirmedOptions);
+    var chart = Highcharts.chart('dailyConfirmedChart', dailyConfirmedOptions);
 }

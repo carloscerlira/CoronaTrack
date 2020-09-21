@@ -1,5 +1,5 @@
 function makeChart(data) {
-    var deathsOptions = {
+    var dailyDeathsOptions = {
         chart: {
         },
         credits: {
@@ -29,10 +29,7 @@ function makeChart(data) {
             },
             column: {
                 shadow: false,
-                // pointWidth: 2,
                 borderWidth: 0,
-                // pointPadding: 0.5,
-                // groupPadding: 1,
                 crisp: false,
             }
         },
@@ -50,5 +47,6 @@ function makeChart(data) {
             }
         ]
     }
-    var chart = Highcharts.chart('deathChart', deathsOptions);
+    var chart = Highcharts.chart('dailyDeathsChart', dailyDeathsOptions);
+    chart.setTitle({text:'Hello World'})
 }
