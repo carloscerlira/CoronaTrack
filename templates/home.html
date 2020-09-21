@@ -1,4 +1,13 @@
-{% extends "index.html" %}
+{% extends 'index.html' %}
+{% from "macros/dailyInfo.html" import dailyInfo %}
+{% from "utils/makeSearch.html" import makeSearch %}
+{% from "utils/makeTable.html" import makeTable %}
 {% block content %}
-<p> Home </p>
+
+{{ dailyInfo(table[0]) }}
+<p class="title"> <strong> Search Country </strong> </p>
+{{ makeSearch() }}
+<p class="title"> <strong> Overview </strong> </p>
+{{ makeTable(table) }}
+
 {% endblock %}

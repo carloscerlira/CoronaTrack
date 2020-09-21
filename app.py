@@ -4,7 +4,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    table_url = 'https://raw.githubusercontent.com/carloscerlira/COVID-19-Tracker/master/data/world/general.json'
+    table = requests.get(table_url).json()
+    return render_template('home.html', table=table)
 
 @app.route('/example')
 def example():
