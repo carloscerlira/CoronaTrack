@@ -20,6 +20,7 @@ var confirmedOptions = {
     },
     plotOptions: {
         series: {
+            pointStart: general['start'],
             pointInterval: 24*3600*1000,
         },
         line: {
