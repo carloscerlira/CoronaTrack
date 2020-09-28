@@ -24,6 +24,11 @@ p.title {
   font-size: 26px;
 }
 
+li {
+  font-family: 'Karla';
+  color: rgb(40, 50, 78);
+  font-size: 16px;
+}
 .pagination>li.active>a {
   background-color: rgb(40, 50, 78) !important;
 }
