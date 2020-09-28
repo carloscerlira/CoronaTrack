@@ -134,3 +134,15 @@ def updateData(user, passoword):
     res = general.to_json(orient='records')
     contents = repo.get_contents(f"data/general.json")
     repo.update_file(contents.path, "automatic update", res, contents.sha)
+
+
+def manualUpdate():
+    for country in general.index:
+        country_iso = general.loc[country]['iso']
+        res = genCountryData(country)
+        with open('data/time_series/'+country_iso+'.json', 'w') as doc:
+            json.dump(res, doc)
+    general.to_json('data/general.json', orient='records')
+
+
+manualUpdate()
