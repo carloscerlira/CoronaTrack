@@ -1,11 +1,11 @@
-var confirmedOptions = {
+var dailyRecovered = {
     chart: {
     },
     credits: {
         enabled: false
     },
     title: {
-        text: 'Total cases'
+        text: 'Daily recovered'
     },
     subtitle: {
         text: general['country']
@@ -39,15 +39,20 @@ var confirmedOptions = {
         },
         area: {
             color: '#0056bf',
-            fillOpacity: 0.2
+            fillOpacity: 0.15
         }
     },
     series: [
         {
-            name: 'Total cases',
+            name: 'Daily recovered',
+            type:'column',
+            data: time_series['daily_recovered']
+        },
+        {
+            name: '7MA',
             type:'area',
-            data: time_series['confirmed']
+            data: time_series['7MA_daily_recovered']
         }
     ]
 }
-Highcharts.chart('confirmedChart', confirmedOptions);
+Highcharts.chart('dailyRecoveredChart', dailyRecovered);

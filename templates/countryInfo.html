@@ -13,10 +13,12 @@
     <div id="confirmedChart" style="max-width: 800px; margin:0 auto;"></div> 
     <div id="dailyConfirmedChart" style="max-width: 800px; margin:0 auto;"></div>
     <div id="dailyDeathsChart" style="max-width: 800px; margin:0 auto;"></div> 
+    <div id="dailyRecoveredChart" style="max-width: 800px; margin:0 auto;"></div> 
 </figure>
 
 <script src="{{ url_for('static', filename='js/charts/confirmedChart.js') }}"> </script>
 <script src="{{ url_for('static', filename='js/charts/dailyConfirmedChart.js') }}"> </script>
 <script src="{{ url_for('static', filename='js/charts/dailyDeathsChart.js') }}"> </script>
+<script src="{{ url_for('static', filename='js/charts/dailyRecoveredChart.js') }}"> </script>
 
 {% endblock %}

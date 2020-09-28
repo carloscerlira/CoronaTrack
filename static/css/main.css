@@ -1,27 +1,27 @@
 h1 {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'Karla';
   color: rgb(40, 50, 78);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 h2 {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'Karla';
   color: rgb(40, 50, 78);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bolder;
 }
 
 p {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'Karla';
   color: rgb(40, 50, 78);
-  font-size: 14px;
+  font-size: 16px;
 }
   
 p.title {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'Karla';
   color: rgb(40, 50, 78);
-  font-size: 24px;
+  font-size: 26px;
 }
 
 .pagination>li.active>a {
