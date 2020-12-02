@@ -135,7 +135,6 @@ def updateData(access_token):
     contents = repo.get_contents(f"data/general.json")
     repo.update_file(contents.path, "automatic update", res, contents.sha)
 
-
 def manualUpdate():
     for country in general.index:
         country_iso = general.loc[country]['iso']
@@ -144,4 +143,4 @@ def manualUpdate():
             json.dump(res, doc)
     general.to_json('data/general.json', orient='records')
 
-manualUpdate()
+# manualUpdate()
