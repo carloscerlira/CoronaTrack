@@ -144,4 +144,4 @@ def manualUpdate():
             json.dump(res, doc)
     general.to_json('data/general.json', orient='records')
 
-manualUpdate()
+# manualUpdate()
