@@ -119,8 +119,8 @@ def genCountryData(country):
     data = countryData(country)
     return data.to_dict()
 
-def updateData(user, passoword):
-    g = Github(user, passoword)
+def updateData(access_token):
+    g = Github(access_token)
     repo = g.get_user().get_repo("CoronaTrack")
     
     for country in general.index:

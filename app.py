@@ -35,9 +35,10 @@ def test():
     return render_template('test.html')
 
 def scheduledTask():
-    user = os.getenv('user')
-    password = os.getenv('password')
-    updateData(user, password)
+    # user = os.getenv('user')
+    # password = os.getenv('password')
+    access_token = os.getenv('access_token')
+    updateData(access_token)
 
 scheduler.add_job(id='Scheduled task', func=scheduledTask, trigger='cron', timezone='UTC', hour=0, minute=20)
 scheduler.start()
