@@ -123,6 +123,10 @@ def updateData(access_token):
     g = Github(access_token)
     repo = g.get_user().get_repo("CoronaTrack")
     
+    res = general.to_json(orient='records')
+    contents = repo.get_contents(f"data/general.json")
+    repo.update_file(contents.path, "automatic update", res, contents.sha)
+    
     for country in general.index:
         country_iso = general.loc[country]['iso']
         country_data = genCountryData(country)
@@ -131,9 +135,6 @@ def updateData(access_token):
         contents = repo.get_contents(f"data/time_series/{country_iso}.json")
         repo.update_file(contents.path, "automatic update", res, contents.sha)
 
-    res = general.to_json(orient='records')
-    contents = repo.get_contents(f"data/general.json")
-    repo.update_file(contents.path, "automatic update", res, contents.sha)
 
 def manualUpdate():
     for country in general.index:
