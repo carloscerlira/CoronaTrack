@@ -28,7 +28,7 @@ var vaccineOptions = {
             pointInterval: 24*3600*1000
         },
         line: {
-            color: '#0056bf',
+            color: '#7637C9',
         },
         column: {
             stacking: 'normal',
@@ -38,7 +38,7 @@ var vaccineOptions = {
             crisp: false,
         },
         area: {
-            color: '#0056bf',
+            color: '#7637C9',
             fillOpacity: 0.2
         }
     },
