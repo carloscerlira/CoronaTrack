@@ -28,18 +28,18 @@ var dailyRecovered = {
             pointInterval: 24*3600*1000
         },
         line: {
-            color: '#7637C9',
+            color: '#0056bf',
         },
         column: {
             stacking: 'normal',
             shadow: false,
-            color: '#7637C9',
+            color: '#0056bf',
             pointPadding: 0,
             borderWidth: 0,
             crisp: false,
         },
         area: {
-            color: '#7637C9',
+            color: '#0056bf',
             fillOpacity: 0.15
         }
     },
