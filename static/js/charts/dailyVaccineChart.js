@@ -24,7 +24,7 @@ var dailyRecovered = {
     },
     plotOptions: {
         series: {
-            pointStart: general['start'],
+            pointStart: time_series['starts']['vaccines'],
             pointInterval: 24*3600*1000
         },
         line: {
@@ -45,7 +45,7 @@ var dailyRecovered = {
     },
     series: [
         {
-            name: 'Daily new dosis',
+            name: 'Daily new dosis given',
             type:'column',
             data: time_series['daily_vaccines']
         },

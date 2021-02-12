@@ -24,7 +24,7 @@ var vaccineOptions = {
     },
     plotOptions: {
         series: {
-            pointStart: general['start'],
+            pointStart: time_series['starts']['vaccines'],
             pointInterval: 24*3600*1000
         },
         line: {
@@ -44,7 +44,7 @@ var vaccineOptions = {
     },
     series: [
         {
-            name: 'Total cases',
+            name: 'Total dosis given',
             type:'area',
             data: time_series['vaccines']
         }
