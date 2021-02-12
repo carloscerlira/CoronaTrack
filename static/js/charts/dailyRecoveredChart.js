@@ -24,14 +24,14 @@ var dailyRecovered = {
     },
     plotOptions: {
         series: {
-            pointStart: general['start'],
+            pointStart: time_series['starts']['confirmed'],
             pointInterval: 24*3600*1000
         },
         line: {
             color: '#0056bf',
         },
         column: {
-            stacking: 'normal',
+            pointWidth: 1,
             shadow: false,
             pointPadding: 0,
             borderWidth: 0,

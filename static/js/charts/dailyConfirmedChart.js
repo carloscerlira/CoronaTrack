@@ -23,7 +23,7 @@ var dailyConfirmedOptions = {
     },
     plotOptions: {
         series: {
-            pointStart: general['start'],
+            pointStart: time_series['starts']['confirmed'],
             pointInterval: 24*3600*1000
         },
         line: {
@@ -31,6 +31,7 @@ var dailyConfirmedOptions = {
         },
         column: {
             shadow: false,
+            pointWidth: 1,
             borderWidth: 0,
             groupPadding: 0.3,
             crisp: false,

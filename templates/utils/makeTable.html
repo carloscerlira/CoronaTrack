@@ -12,8 +12,8 @@
       <tr>
         <th data-field="flag">Flag</th>
         <th data-field="country" data-sortable="true">Country</th>
-        <th data-field="confirmed">Confirmed</th>
         <th data-field="vaccines">Vaccines</th>
+        <th data-field="confirmed">Confirmed</th>
         <th data-field="recovered">Recovered</th>
         <th data-field="deaths">Deaths</th>
       </tr>
@@ -22,9 +22,9 @@
       {% for country in table %}
       <tr>
         <td> <a href="/country/{{ country['iso'] }}"></a> <img src="https://www.countryflags.io/{{ country['iso'] }}/flat/32.png" onerror="this.style.display='none'"> </td>
+        <td> {{ country['vaccines'] }} </td>
         <td> {{ country['country'] }} </td>
         <td> {{ country['confirmed'] }} </td>
-        <td> {{ country['vaccines'] }} </td>
         <td> {{ country['recovered'] }} </td>
         <td> {{ country['deaths'] }} </td>
       </tr>

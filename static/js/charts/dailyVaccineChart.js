@@ -31,7 +31,6 @@ var dailyRecovered = {
             color: '#0056bf',
         },
         column: {
-            stacking: 'normal',
             shadow: false,
             pointPadding: 0,
             borderWidth: 0,
