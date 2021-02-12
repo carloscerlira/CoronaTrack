@@ -22,8 +22,8 @@
       {% for country in table %}
       <tr>
         <td> <a href="/country/{{ country['iso'] }}"></a> <img src="https://www.countryflags.io/{{ country['iso'] }}/flat/32.png" onerror="this.style.display='none'"> </td>
-        <td> {{ country['vaccines'] }} </td>
         <td> {{ country['country'] }} </td>
+        <td> {{ country['vaccines'] }} </td>
         <td> {{ country['confirmed'] }} </td>
         <td> {{ country['recovered'] }} </td>
         <td> {{ country['deaths'] }} </td>
