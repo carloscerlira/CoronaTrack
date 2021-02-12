@@ -5,7 +5,7 @@ var dailyRecovered = {
         enabled: false
     },
     title: {
-        text: 'Daily recovered'
+        text: 'Daily new recovered'
     },
     subtitle: {
         text: general['country']
@@ -44,7 +44,7 @@ var dailyRecovered = {
     },
     series: [
         {
-            name: 'Daily recovered',
+            name: 'Daily new recovered',
             type:'column',
             data: time_series['daily_recovered']
         },
