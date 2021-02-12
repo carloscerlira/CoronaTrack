@@ -19,6 +19,7 @@ def genRawData():
     url = lambda metric: f'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_{metric}_global.csv' 
     metrics = ['confirmed', 'recovered', 'deaths'] 
     for metric in metrics: sources[metric] = url(metric)
+
     time_series = {metric: pd.read_csv(sources[metric]) for metric in metrics}
 
     for metric in time_series:
