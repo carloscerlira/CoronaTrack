@@ -46,7 +46,7 @@ var vaccineOptions = {
         {
             name: 'Total cases',
             type:'area',
-            data: time_series['vaccine']
+            data: time_series['vaccines']
         }
     ]
 }

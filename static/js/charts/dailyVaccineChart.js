@@ -46,13 +46,13 @@ var dailyRecovered = {
         {
             name: 'Daily new dosis',
             type:'column',
-            data: time_series['daily_vaccine']
+            data: time_series['daily_vaccines']
         },
         {
             name: '7MA',
             type:'area',
-            data: time_series['7MA_daily_vaccine']
+            data: time_series['7MA_daily_vaccines']
         }
     ]
 }
-Highcharts.chart('dailyRecoveredChart', dailyRecovered);
+Highcharts.chart('dailyVaccineChart', dailyRecovered);
