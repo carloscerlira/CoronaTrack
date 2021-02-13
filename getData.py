@@ -136,7 +136,6 @@ def updateData(access_token):
         contents = repo.get_contents(f"data/time_series/{country_iso}.json")
         repo.update_file(contents.path, "automatic update", res, contents.sha)
 
-
 def manualUpdate():
     for country in general.index:
         country_iso = general.loc[country]['iso']
