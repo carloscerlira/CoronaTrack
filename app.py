@@ -24,6 +24,10 @@ def aboutData():
 def aboutCOVID():
     return render_template('aboutCOVID.html')
 
+@app.route('/aboutVaccines')
+def aboutVaccines():
+    return render_template('aboutVaccines.html')
+
 @app.route('/country/<string:country>')
 def country(country):
     data_url = f'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/master/data/time_series/{country}.json'
