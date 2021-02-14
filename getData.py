@@ -164,11 +164,11 @@ def updateData(access_token):
         repo.update_file(contents.path, "automatic update", res, contents.sha)
 
 def manualUpdate():
+    general_df.to_json('data/general.json', orient='records')
     for country in general_df.index:
         country_iso = general_df.loc[country]['iso']
         res = genCountryData(country)
         with open('data/time_series/'+country_iso+'.json', 'w') as doc:
             json.dump(res, doc)
-    general_df.to_json('data/general.json', orient='records')
 
 # manualUpdate()
