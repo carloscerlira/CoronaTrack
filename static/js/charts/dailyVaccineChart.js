@@ -1,11 +1,11 @@
-var dailyConfirmedOptions = {
+var dailyRecovered = {
     chart: {
     },
     credits: {
         enabled: false
     },
     title: {
-        text: 'Daily new cases'
+        text: 'Daily new dosis given'
     },
     subtitle: {
         text: general['country']
@@ -14,16 +14,17 @@ var dailyConfirmedOptions = {
         type: 'datetime'
     },
     yAxis: {
+        title: false,
         visible: false,
-        endOnTick: false, 
-        min: 0
+        endOnTick: false,
+        min:0
     },
     tooltip: {
         valueDecimals: 0
     },
     plotOptions: {
         series: {
-            pointStart: time_series['starts']['confirmed'],
+            pointStart: time_series['starts']['vaccines'],
             pointInterval: 24*3600*1000
         },
         line: {
@@ -31,27 +32,26 @@ var dailyConfirmedOptions = {
         },
         column: {
             shadow: false,
-            pointWidth: 1,
+            pointPadding: 0,
             borderWidth: 0,
-            groupPadding: 0.3,
             crisp: false,
         },
         area: {
             color: '#0056bf',
-            fillOpacity: 0.15,
+            fillOpacity: 0.15
         }
     },
     series: [
         {
-            name: 'Daily new cases',
+            name: 'Daily new dosis given',
             type:'column',
-            data: time_series['daily_confirmed']
+            data: time_series['daily_vaccines']
         },
         {
             name: '7MA',
             type:'area',
-            data: time_series['7MA_daily_confirmed']
+            data: time_series['7MA_daily_vaccines']
         }
     ]
 }
-Highcharts.chart('dailyConfirmedChart', dailyConfirmedOptions);
+Highcharts.chart('dailyVaccineChart', dailyRecovered);

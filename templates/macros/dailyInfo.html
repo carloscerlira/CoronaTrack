@@ -8,7 +8,7 @@
   </div>
 </div>
 <div class="row">
-  {% for metric in ['confirmed', 'recovered', 'deaths'] %}
+  {% for metric in ['vaccines', 'confirmed', 'recovered', 'deaths'] %}
   <div class="col-sm text-center">
     <p class="title", style="font-size: 20px;"> 
       <strong> {{ metric.capitalize() }} </strong> </br>
@@ -23,6 +23,6 @@
   {% endfor %}
 </div>
 <p><span style="font-size: 12px; text-align:end ; font-style: italic;"> 
-  Last Update: {{ daily_data['last_update'] }} GMT
+  Last Update: {{ daily_data['last_update'] }} GMT 
 </span></p>
 {% endmacro %}

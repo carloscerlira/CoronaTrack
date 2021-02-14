@@ -24,13 +24,14 @@ var dailyDeathsOptions = {
     },
     plotOptions: {
         series: {
-            pointStart: general['start'],
+            pointStart: time_series['starts']['confirmed'],
             pointInterval: 24*3600*1000
         },
         line: {
             color: '#0056bf',
         },
         column: {
+            pointWidth: 1,
             shadow: false,
             borderWidth: 0,
             groupPadding: 0.3,
