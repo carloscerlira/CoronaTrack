@@ -10,19 +10,21 @@
 <div class="row">
   {% for metric in ['vaccines', 'confirmed', 'recovered', 'deaths'] %}
   <div class="col-sm text-center">
-    <p class="title", style="font-size: 20px;"> 
-      <strong> {{ metric.capitalize() }} </strong> </br>
-      <span style="font-size: 18px;">
-        {{ daily_data[metric] }} </br>
+    <p class="title", style="font-size: 20px; line-height: 115%;"> 
+      <strong> {{ metric.capitalize() }} </strong> 
+      </br> 
+      <span style="font-size: 18px;"> 
+        {{ daily_data[metric] }} 
       </span>
+      </br>
       <span style="font-size: 16px;">
-        <i class="fas fa-angle-up"></i> {{ daily_data['daily_'+metric] }}
+        <i class="fas fa-plus" style="font-size: 12px;"></i> {{ daily_data['daily_'+metric] }}
       </span>
     </p>
   </div>  
   {% endfor %}
 </div>
-<p><span style="font-size: 12px; text-align:end ; font-style: italic;"> 
+<p><span style="font-size:12px; text-align:end; font-style:italic;"> 
   Last Update: {{ daily_data['last_update'] }} GMT 
 </span></p>
 {% endmacro %}

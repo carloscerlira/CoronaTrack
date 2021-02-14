@@ -121,11 +121,10 @@ class countryData:
             tmp_s = s[s > atleast]
             if len(tmp_s): start = tmp_s.index[0]
             else: start = s.index[0]
-            if metric == '7MA_daily_confirmed' and start < '1/29/20': start = '1/29/20' 
+            if metric == '7MA_daily_confirmed' and start < '7/1/20': start = '7/1/20' 
             return start
         
-        # start = getStart(metric='7MA_daily_confirmed', atleast=1000)
-        start = '7/1/20'
+        start = getStart(metric='7MA_daily_confirmed', atleast=100)
         self.time_series = {metric: self.time_series[metric][start:] for metric in self.time_series}
 
         start_vaccines = getStart(metric='7MA_daily_vaccines', atleast=100)

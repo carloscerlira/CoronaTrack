@@ -1,6 +1,7 @@
 import requests
 import json
 from flask import Flask, render_template, url_for, request
+# from flask_mobility import Mobility
 from flask_apscheduler import APScheduler
 from dotenv import load_dotenv
 load_dotenv()
@@ -8,6 +9,7 @@ import os
 from getData import updateData
 
 app = Flask(__name__)
+# Mobility(app)
 scheduler = APScheduler()
 
 @app.route('/')
@@ -30,6 +32,7 @@ def aboutVaccines():
 
 @app.route('/country/<string:country>')
 def country(country):
+    # print(request.MOBILE)
     data_url = f'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/master/data/time_series/{country}.json'
     data = requests.get(data_url).json()
     return render_template('countryInfo.html', data=data)   
