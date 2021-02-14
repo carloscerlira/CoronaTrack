@@ -128,7 +128,7 @@ class countryData:
         start = '7/1/20'
         self.time_series = {metric: self.time_series[metric][start:] for metric in self.time_series}
 
-        start_vaccines = getStart(metric='7MA_daily_vaccines', atleast=1000)
+        start_vaccines = getStart(metric='7MA_daily_vaccines', atleast=100)
         self.time_series['vaccines'] = self.time_series['vaccines'][start_vaccines:]
         self.time_series['daily_vaccines'] = self.time_series['daily_vaccines'][start_vaccines:]
         self.time_series['7MA_daily_vaccines'] = self.time_series['7MA_daily_vaccines'][start_vaccines:]
