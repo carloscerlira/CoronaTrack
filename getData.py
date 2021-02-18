@@ -119,7 +119,7 @@ class countryData:
             tmp_s = s[s > atleast]
             if len(tmp_s): start = tmp_s.index[0]
             else: start = s.index[0]
-            if metric == "7MA_daily_confirmed" and toUnixTime(start, format="%m/%d/%y") < toUnixTime("7/1/20", format="%m/%d/%y"): start = "7/1/20" 
+            if metric == "7MA_daily_confirmed" and toUnixTime(start, format="%m/%d/%y") < toUnixTime("8/1/20", format="%m/%d/%y"): start = "8/1/20" 
             return start
         
         start = getStart(metric="7MA_daily_confirmed", atleast=100)
@@ -170,4 +170,4 @@ def manualUpdate():
         with open("data/time_series/"+country_iso+".json", "w") as doc:
             json.dump(res, doc)
 
-manualUpdate()
+# manualUpdate()
