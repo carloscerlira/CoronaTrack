@@ -33,7 +33,7 @@ def aboutVaccines():
 @app.route('/country/<string:country>')
 def country(country):
     # print(request.MOBILE)
-    data_url = f'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/master/data/time_series/{country}.json'
+    data_url = f'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/dev/data/time_series/{country}.json'
     data = requests.get(data_url).json()
     return render_template('countryInfo.html', data=data)   
 
