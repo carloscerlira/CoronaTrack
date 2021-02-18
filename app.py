@@ -14,7 +14,7 @@ scheduler = APScheduler()
 
 @app.route('/')
 def home():
-    table_url = 'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/master/data/general.json'
+    table_url = 'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/dev/data/general.json'
     table = requests.get(table_url).json()
     return render_template('home.html', table=table)
 

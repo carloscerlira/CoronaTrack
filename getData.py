@@ -116,9 +116,10 @@ class countryData:
     def preProcessing(self):
         def getStart(metric, atleast=1):
             s = self.time_series[metric]
-            tmp_s = s[s > atleast]
+            tmp_s = s[s > max(s)*0.5]
             if len(tmp_s): start = tmp_s.index[0]
             else: start = s.index[0]
+            # print(start, toUnixTime(start, format="%m/%d/%y"), toUnixTime("7/1/20", format="%m/%d/%y"))
             if metric == "7MA_daily_confirmed" and toUnixTime(start, format="%m/%d/%y") < toUnixTime("7/1/20", format="%m/%d/%y"): start = "7/1/20" 
             return start
         
@@ -140,7 +141,8 @@ class countryData:
         res["time_series"]["starts"] = self.time_series["starts"]
         return res
 
-# print(countryData("US").time_series["daily_vaccines"])
+# s = countryData("Austria").time_series["confirmed"]
+# print(s.head())
 
 def genCountryData(country):
     data = countryData(country)
