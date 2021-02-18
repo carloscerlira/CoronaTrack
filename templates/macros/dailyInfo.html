@@ -10,7 +10,7 @@
 <div class="row">
   {% for metric in ['vaccines', 'confirmed', 'recovered', 'deaths'] %}
   <div class="col-sm text-center">
-    <p class="title", style="font-size: 20px; line-height: 115%;"> 
+    <p class="title", style="font-size: 20px; line-height: 120%;"> 
       <strong> {{ metric.capitalize() }} </strong> 
       </br> 
       <span style="font-size: 18px;"> 
@@ -18,7 +18,7 @@
       </span>
       </br>
       <span style="font-size: 16px;">
-        <i class="fas fa-plus" style="font-size: 12px;"></i> {{ daily_data['daily_'+metric] }}
+        <i class="fas fa-plus" style="font-size: 10px;"></i> {{ daily_data['daily_'+metric] }}
       </span>
     </p>
   </div>  
