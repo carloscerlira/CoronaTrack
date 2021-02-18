@@ -6,7 +6,7 @@ $(document).ready(function(){
      var searchField = $('#search').val();
      var expression = new RegExp(searchField, "i");
      if (searchField == ''){ return }
-     $.getJSON('https://raw.githubusercontent.com/carloscerlira/COVID-19-Tracker/master/data/world/general.json', function(data) {
+     $.getJSON('https://raw.githubusercontent.com/carloscerlira/CoronaTrack/master/data/general.json', function(data) {
       $.each(data, function(key, value){
        if (value.country.search(expression) != -1)
        {
