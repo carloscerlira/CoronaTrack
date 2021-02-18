@@ -117,15 +117,16 @@ class countryData:
         def getStart(metric, atleast=1):
             s = self.time_series[metric]
             s.dropna(inplace=True)
-            tmp_s = s[s > max(s.values)*0.1]
+            tmp_s = s[s > atleast]
             # print(tmp_s.head())
             if len(tmp_s): start = tmp_s.index[0]
             else: start = s.index[0]
-            # print(start, toUnixTime(start, format="%m/%d/%y") < toUnixTime("7/1/20", format="%m/%d/%y"))
-            if metric == "7MA_daily_confirmed" and toUnixTime(start, format="%m/%d/%y") < toUnixTime("7/1/20", format="%m/%d/%y"): start = "7/1/20" 
+            # print(start, toUnixTime(start, format="%m/%d/%y") < toUnixTime("3/1/20", format="%m/%d/%y"))
+            if metric == "7MA_daily_confirmed" and toUnixTime(start, format="%m/%d/%y") < toUnixTime("3/1/20", format="%m/%d/%y"): start = "3/1/20" 
             return start
         
-        start = getStart(metric="7MA_daily_confirmed", atleast=100)
+        # start = getStart(metric="7MA_daily_confirmed", atleast=100)
+        start = "3/1/20"
         self.time_series = {metric: self.time_series[metric][start:] for metric in self.time_series}
 
         start_vaccines = getStart(metric="7MA_daily_vaccines", atleast=100)
@@ -143,7 +144,8 @@ class countryData:
         res["time_series"]["starts"] = self.time_series["starts"]
         return res
 
-# s = countryData("Portugal").time_series["7MA_daily_confirmed"]
+# s = countryData("France").time_series["7MA_daily_confirmed"]
+# print(s.head())
 # print(max(s.values)*.01)
 
 def genCountryData(country):
@@ -174,4 +176,4 @@ def manualUpdate():
         with open("data/time_series/"+country_iso+".json", "w") as doc:
             json.dump(res, doc)
 
-manualUpdate()
+# manualUpdate()
