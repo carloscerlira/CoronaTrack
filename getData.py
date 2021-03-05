@@ -177,4 +177,4 @@ def manualUpdate():
         with open("data/time_series/"+country_iso+".json", "w") as doc:
             json.dump(res, doc)
 
-manualUpdate()
+# manualUpdate()
