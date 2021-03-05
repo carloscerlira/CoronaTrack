@@ -71,7 +71,8 @@ def genRawData():
         vaccines_df.loc[country] = tmp_df["total_vaccinations"]
 
     vaccines_df = vaccines_df.iloc[:,:-1]
-    vaccines_df.fillna(method="ffill", inplace=True, axis=1)
+    # vaccines_df.fillna(method="ffill", inplace=True, axis=1)
+    vaccines_df.ffill(axis=1, inplace=True)
     vaccines_df.fillna(value=0, inplace=True)
     time_series["vaccines"] = vaccines_df
 
@@ -126,7 +127,7 @@ class countryData:
             return start
         
         # start = getStart(metric="7MA_daily_confirmed", atleast=100)
-        start = "7/1/20"
+        start = "8/1/20"
         self.time_series = {metric: self.time_series[metric][start:] for metric in self.time_series}
 
         start_vaccines = getStart(metric="7MA_daily_vaccines", atleast=100)
@@ -176,4 +177,4 @@ def manualUpdate():
         with open("data/time_series/"+country_iso+".json", "w") as doc:
             json.dump(res, doc)
 
-manualUpdate()
+# manualUpdate()
