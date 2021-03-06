@@ -83,7 +83,7 @@ def genRawData():
     #     return 
 
     # ffill(vaccines_df)
-    vaccines_df.ffill(axis=1, inplace=True)
+    # vaccines_df.ffill(axis=1, inplace=True)
     vaccines_df.fillna(value=0, inplace=True)
     time_series["vaccines"] = vaccines_df
 
