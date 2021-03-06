@@ -5,7 +5,7 @@ var dailyRecovered = {
         enabled: false
     },
     title: {
-        text: 'Daily new dosis given'
+        text: 'Daily new dosis'
     },
     subtitle: {
         text: general['country']

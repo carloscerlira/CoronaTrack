@@ -5,7 +5,7 @@ var vaccineOptions = {
         enabled: false
     },
     title: {
-        text: 'Total dosis given'
+        text: 'Total dosis'
     },
     subtitle: {
         text: general['country']
