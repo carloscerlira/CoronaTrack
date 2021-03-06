@@ -77,13 +77,14 @@ def genRawData():
         m, n = df.shape 
         for i in range(m):
             s = df.iloc[i, :]
+            if pd.isnull(s[0]): s[0] = 0
             for j in range(1, n):
                 if pd.isnull(s[j]): 
                     s[j] = s[j-1] 
         return 
 
     ffill(vaccines_df)
-    vaccines_df.fillna(value=0, inplace=True)
+    # vaccines_df.fillna(value=0, inplace=True)
     time_series["vaccines"] = vaccines_df
 
     for metric in metrics: 
@@ -155,9 +156,8 @@ class countryData:
         res["time_series"]["starts"] = self.time_series["starts"]
         return res
 
-# s = countryData("France").time_series["7MA_daily_confirmed"]
-# print(s.head())
-# print(max(s.values)*.01)
+# s = countryData("US").time_series["vaccines"]
+# print(s.tail())
 
 def genCountryData(country):
     data = countryData(country)
