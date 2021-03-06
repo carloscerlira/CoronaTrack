@@ -47,7 +47,7 @@ def scheduledTask():
     access_token = os.getenv('access_token')
     updateData(access_token)
 
-scheduler.add_job(id='Scheduled task', func=scheduledTask, trigger='cron', timezone='UTC', hour=8, minute=54)
+scheduler.add_job(id='Scheduled task', func=scheduledTask, trigger='cron', timezone='UTC', hour=20, minute=59)
 scheduler.start()
 
 if __name__ == '__main__':
