@@ -74,13 +74,13 @@ def genRawData():
     # vaccines_df.fillna(method="ffill", inplace=True, axis=1)
     # vaccines_df.ffill(axis=1, inplace=True)
     def ffill(df):
-    m, n = df.shape 
-    for i in range(m):
-        s = df.iloc[i, :]
-        for j in range(1, n):
-            if pd.isnull(s[j]): 
-                s[j] = s[j-1] 
-    return 
+        m, n = df.shape 
+        for i in range(m):
+            s = df.iloc[i, :]
+            for j in range(1, n):
+                if pd.isnull(s[j]): 
+                    s[j] = s[j-1] 
+        return 
 
     ffill(vaccines_df)
     vaccines_df.fillna(value=0, inplace=True)
