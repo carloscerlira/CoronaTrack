@@ -1,5 +1,5 @@
 import pandas as pd 
-import numpy as np 
+import numpy as np
 from datetime import datetime
 import json
 import requests
@@ -72,19 +72,19 @@ def genRawData():
 
     vaccines_df = vaccines_df.iloc[:,:-1]
     # vaccines_df.fillna(method="ffill", inplace=True, axis=1)
-    # vaccines_df.ffill(axis=1, inplace=True)
-    def ffill(df):
-        m, n = df.shape 
-        for i in range(m):
-            s = df.iloc[i, :]
-            if pd.isnull(s[0]): s[0] = 0
-            for j in range(1, n):
-                if pd.isnull(s[j]): 
-                    s[j] = s[j-1] 
-        return 
+    # def ffill(df):
+    #     m, n = df.shape 
+    #     for i in range(m):
+    #         s = df.iloc[i, :]
+    #         if pd.isnull(s[0]): s[0] = 0
+    #         for j in range(1, n):
+    #             if pd.isnull(s[j]): 
+    #                 s[j] = s[j-1] 
+    #     return 
 
-    ffill(vaccines_df)
-    # vaccines_df.fillna(value=0, inplace=True)
+    # ffill(vaccines_df)
+    vaccines_df.ffill(axis=1, inplace=True)
+    vaccines_df.fillna(value=0, inplace=True)
     time_series["vaccines"] = vaccines_df
 
     for metric in metrics: 
@@ -156,8 +156,6 @@ class countryData:
         res["time_series"]["starts"] = self.time_series["starts"]
         return res
 
-# s = countryData("US").time_series["vaccines"]
-# print(s.tail())
 
 def genCountryData(country):
     data = countryData(country)
