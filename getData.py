@@ -62,7 +62,15 @@ def genRawData():
     df = pd.read_csv(sources["vaccines"])
     replace = {"United States": "US"}
     df["location"].replace(replace, inplace=True)
-    df["date"] = df["date"].apply(lambda date: datetime.strptime(date, "%Y-%m-%d").strftime("%#m/%#d/%y")) 
+
+    def transform_date(date):
+        parts = date.split("-")
+        year = parts[0][-2:]
+        month = str(int(parts[1]))
+        day = str(int(parts[2]))
+        return f"{month}/{day}/{year}"
+
+    df["date"] = df["date"].apply(transform_date) 
     vaccines_df = pd.DataFrame(index=time_series["confirmed"].index, columns=time_series["confirmed"].columns)
 
     for country in iso_df.index:
@@ -83,7 +91,7 @@ def genRawData():
     #     return 
 
     # ffill(vaccines_df)
-    # vaccines_df.ffill(axis=1, inplace=True)
+    vaccines_df.ffill(axis=1, inplace=True)
     vaccines_df.fillna(value=0, inplace=True)
     time_series["vaccines"] = vaccines_df
 
@@ -101,7 +109,6 @@ def genRawData():
         general_df[metric] = time_series[metric].iloc[:,-1]
         general_df[f"daily_{metric}"] = time_series[f"daily_{metric}"].iloc[:,-1]
 
-    # general_df.fillna(value=0, inplace=True)
     general_df = general_df.astype(int)
     general_df.sort_values("confirmed", ascending=False, inplace=True) 
     general_df = general_df.applymap(lambda x: "{:,}".format(x))
@@ -130,11 +137,9 @@ class countryData:
             s = self.time_series[metric]
             s.dropna(inplace=True)
             tmp_s = s[s > atleast]
-            # print(tmp_s.head())
             if len(tmp_s): start = tmp_s.index[0]
             else: start = s.index[0]
-            # print(start, toUnixTime(start, format="%m/%d/%y") < toUnixTime("3/1/20", format="%m/%d/%y"))
-            if metric == "7MA_daily_confirmed" and toUnixTime(start, format="%m/%d/%y") < toUnixTime("3/1/20", format="%m/%d/%y"): start = "7/1/20" 
+            if metric == "7MA_daily_confirmed" and toUnixTime(start, format="%m/%d/%y") < toUnixTime("3/1/20", format="%m/%d/%y"): start = "8/1/20" 
             return start
         
         # start = getStart(metric="7MA_daily_confirmed", atleast=100)
@@ -155,7 +160,6 @@ class countryData:
         }
         res["time_series"]["starts"] = self.time_series["starts"]
         return res
-
 
 def genCountryData(country):
     data = countryData(country)
