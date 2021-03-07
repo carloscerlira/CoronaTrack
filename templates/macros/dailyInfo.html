@@ -18,13 +18,14 @@
       </span>
       </br>
       <span style="font-size: 16px;">
-        <i class="fas fa-plus" style="font-size: 10px;"></i> {{ daily_data['daily_'+metric] }}
+        <i class="fas fa-angle-up fa-sm"></i> {{ daily_data['daily_'+metric] }}
       </span>
     </p>
   </div>  
   {% endfor %}
 </div>
 <p><span style="font-size:12px; text-align:end; font-style:italic;"> 
-  Last Update: {{ daily_data['last_update'] }} GMT 
+  Last Update: {{ daily_data['last_update'] }} GMT <br>
+  *Vaccine data has 1-day delay 
 </span></p>
 {% endmacro %}
