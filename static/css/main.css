@@ -1,38 +1,38 @@
 h1 {
-  font-family: 'Karla';
+  font-family: 'Roboto';
   color: rgb(40, 50, 78);
   font-size: 20px;
   font-weight: bold;
 }
 
 h2 {
-  font-family: 'Karla';
+  font-family: 'Roboto';
   color: rgb(40, 50, 78);
   font-size: 20px;
   font-weight: bolder;
 }
 
 h3 {
-  font-family: 'Karla';
+  font-family: 'Roboto';
   color: rgb(40, 50, 78);
   font-size: 16px;
   font-weight: bolder;
 }
 
 p {
-  font-family: 'Karla';
+  font-family: 'Roboto';
   color: rgb(40, 50, 78);
   font-size: 16px;
 }
   
 p.title {
-  font-family: 'Karla';
+  font-family: 'Roboto';
   color: rgb(40, 50, 78);
   font-size: 26px;
 }
 
 li {
-  font-family: 'Karla';
+  font-family: 'Roboto';
   color: rgb(40, 50, 78);
   font-size: 16px;
 }
