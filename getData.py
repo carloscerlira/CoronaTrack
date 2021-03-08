@@ -78,19 +78,7 @@ def genRawData():
         tmp_df.set_index("date", inplace=True)
         vaccines_df.loc[country] = tmp_df["total_vaccinations"]
 
-    vaccines_df = vaccines_df.iloc[:,:-1]
-    # vaccines_df.fillna(method="ffill", inplace=True, axis=1)
-    # def ffill(df):
-    #     m, n = df.shape 
-    #     for i in range(m):
-    #         s = df.iloc[i, :]
-    #         if pd.isnull(s[0]): s[0] = 0
-    #         for j in range(1, n):
-    #             if pd.isnull(s[j]): 
-    #                 s[j] = s[j-1] 
-    #     return 
-
-    # ffill(vaccines_df)
+    # vaccines_df = vaccines_df.iloc[:,:-1]
     vaccines_df.ffill(axis=1, inplace=True)
     vaccines_df.fillna(value=0, inplace=True)
     time_series["vaccines"] = vaccines_df
@@ -189,4 +177,4 @@ def manualUpdate():
         with open("data/time_series/"+country_iso+".json", "w") as doc:
             json.dump(res, doc)
 
-# manualUpdate()
+manualUpdate()
