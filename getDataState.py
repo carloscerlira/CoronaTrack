@@ -58,10 +58,10 @@ def genRawData():
     general_df["country"] = general_df.index
     general_df["iso"] = iso_df["iso"]
     general_df["last_update"] = str(datetime.utcnow())[:-7]
-    general_df.dropna(inplace=True)
     return time_series, general_df
 
 time_series, general_df = genRawData()
+# print(general_df)
 
 class countryData:
     def __init__(self, country):
@@ -120,4 +120,4 @@ def manualUpdate():
         with open("data/mexico/time_series/"+country_iso+".json", "w") as doc:
             json.dump(res, doc)
 
-# manualUpdate()
+manualUpdate()
