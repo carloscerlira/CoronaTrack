@@ -38,6 +38,13 @@ def country(country):
     data = requests.get(data_url).json()
     return render_template('countryInfo.html', data=data)   
 
+
+@app.route('/Mexico')
+def Mexico():
+    table_url = f'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/{branch}/data/mexico/general.json'
+    table = requests.get(table_url).json()
+    return render_template('homeState.html', table=table)
+
 @app.route('/country/MX/<string:state>')
 def state(state):
     # print(request.MOBILE)

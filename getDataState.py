@@ -36,7 +36,7 @@ def genRawData():
         df.rename(columns={"Fecha": "date"}, inplace=True)
         df["date"] = time_series[metric]["date"].apply(transform_date)   
         df.set_index("date", inplace=True) 
-        df = df.loc["1/1/21":,:]    
+        df = df.loc["10/1/20":,:]    
         time_series[metric] = df.transpose()
     
     for metric in metrics:
@@ -55,6 +55,7 @@ def genRawData():
     general_df.sort_values("confirmed", ascending=False, inplace=True) 
     general_df = general_df.applymap(lambda x: "{:,}".format(x))
     
+    general_df["country"] = general_df.index
     general_df["iso"] = iso_df["iso"]
     general_df["last_update"] = str(datetime.utcnow())[:-7]
     general_df.dropna(inplace=True)
@@ -93,7 +94,6 @@ class countryData:
 def genCountryData(country):
     data = countryData(country)
     return data.to_dict()
-
 
 # def updateData(access_token):
 #     g = Github(access_token)
