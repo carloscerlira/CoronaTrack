@@ -11,10 +11,11 @@ from getData import updateData
 app = Flask(__name__)
 # Mobility(app)
 scheduler = APScheduler()
+branch = os.getenv('branch')
 
 @app.route('/')
 def home():
-    table_url = 'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/master/data/general.json'
+    table_url = f'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/{branch}/data/general.json'
     table = requests.get(table_url).json()
     return render_template('home.html', table=table)
 
@@ -33,17 +34,23 @@ def aboutVaccines():
 @app.route('/country/<string:country>')
 def country(country):
     # print(request.MOBILE)
-    data_url = f'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/master/data/time_series/{country}.json'
+    data_url = f'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/{branch}/data/time_series/{country}.json'
     data = requests.get(data_url).json()
     return render_template('countryInfo.html', data=data)   
+
+@app.route('/country/MX/<string:state>')
+def state(state):
+    # print(request.MOBILE)
+    data_url = f'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/{branch}/data/time_series/mexico/{state}.json'
+    data = requests.get(data_url).json()
+    return render_template('stateInfo.html', data=data)   
+
 
 @app.route('/test')
 def test():
     return render_template('test.html')
 
 def scheduledTask():
-    # user = os.getenv('user')
-    # password = os.getenv('password')
     access_token = os.getenv('access_token')
     updateData(access_token)
 
