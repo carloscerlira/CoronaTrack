@@ -57,7 +57,7 @@ def genRawData():
     
     general_df["iso"] = iso_df["iso"]
     general_df["last_update"] = str(datetime.utcnow())[:-7]
-
+    general_df.dropna(inplace=True)
     return time_series, general_df
 
 time_series, general_df = genRawData()
@@ -94,8 +94,6 @@ def genCountryData(country):
     data = countryData(country)
     return data.to_dict()
 
-print(genCountryData("México"))
-
 # def updateData(access_token):
 #     g = Github(access_token)
 #     repo = g.get_user().get_repo("CoronaTrack")
@@ -112,10 +110,13 @@ print(genCountryData("México"))
 #         contents = repo.get_contents(f"data/time_series/{country_iso}.json")
 #         repo.update_file(contents.path, "automatic update", res, contents.sha)
 
+
 def manualUpdate():
     general_df.to_json("data/mexico/general.json", orient="records")
     for country in general_df.index:
         country_iso = general_df.loc[country]["iso"]
         res = genCountryData(country)
-        with open("data/time_series/mexico/"+country_iso+".json", "w") as doc:
+        with open("data/mexico/time_series/"+country_iso+".json", "w") as doc:
             json.dump(res, doc)
+
+manualUpdate()

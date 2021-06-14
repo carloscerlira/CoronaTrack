@@ -45,7 +45,6 @@ def state(state):
     data = requests.get(data_url).json()
     return render_template('stateInfo.html', data=data)   
 
-
 @app.route('/test')
 def test():
     return render_template('test.html')
