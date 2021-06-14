@@ -41,7 +41,7 @@ def country(country):
 @app.route('/country/MX/<string:state>')
 def state(state):
     # print(request.MOBILE)
-    data_url = f'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/{branch}/data/time_series/mexico/{state}.json'
+    data_url = f'https://raw.githubusercontent.com/carloscerlira/CoronaTrack/{branch}/data/mexico/time_series/{state}.json'
     data = requests.get(data_url).json()
     return render_template('stateInfo.html', data=data)   
 

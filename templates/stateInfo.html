@@ -1,5 +1,5 @@
 {% extends 'index.html' %}
-{% from "macros/dailyInfo.html" import dailyInfo %}
+{% from "macros/dailyInfoState.html" import dailyInfoState %}
 {% block content %}
 <script>
     var data = {{ data | safe }};
@@ -7,7 +7,7 @@
     var time_series = data['time_series'];
 </script>
 
-{{ dailyInfo(data['general']) }}
+{{ dailyInfoState(data['general']) }}
 <hr>
 <figure class="highcharts-figure">
     <div id="confirmedChart" style="max-width: 800px; margin:0 auto;"></div> 

@@ -78,7 +78,7 @@ class countryData:
             if metric == "7MA_daily_confirmed" and toUnixTime(start, format="%m/%d/%y") < toUnixTime("3/1/20", format="%m/%d/%y"): start = "8/1/20" 
             return start
         
-        start = "1/1/21"
+        start = "1/10/21"
         self.time_series = {metric: self.time_series[metric][start:] for metric in self.time_series}
         self.time_series["starts"] = {"confirmed":toUnixTime(start, format="%m/%d/%y")} 
 
@@ -93,6 +93,7 @@ class countryData:
 def genCountryData(country):
     data = countryData(country)
     return data.to_dict()
+
 
 # def updateData(access_token):
 #     g = Github(access_token)
