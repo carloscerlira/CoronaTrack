@@ -120,4 +120,4 @@ def manualUpdate():
         with open("data/mexico/time_series/"+country_iso+".json", "w") as doc:
             json.dump(res, doc)
 
-manualUpdate()
+# manualUpdate()
