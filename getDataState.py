@@ -79,7 +79,7 @@ class countryData:
             if metric == "7MA_daily_confirmed" and toUnixTime(start, format="%m/%d/%y") < toUnixTime("3/1/20", format="%m/%d/%y"): start = "8/1/20" 
             return start
         
-        start = "1/10/21"
+        start = "10/10/20"
         self.time_series = {metric: self.time_series[metric][start:] for metric in self.time_series}
         self.time_series["starts"] = {"confirmed":toUnixTime(start, format="%m/%d/%y")} 
 
@@ -120,4 +120,4 @@ def manualUpdate():
         with open("data/mexico/time_series/"+country_iso+".json", "w") as doc:
             json.dump(res, doc)
 
-# manualUpdate()
+manualUpdate()

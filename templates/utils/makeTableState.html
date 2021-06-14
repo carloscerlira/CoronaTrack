@@ -10,6 +10,7 @@
   >
     <thead>
       <tr>
+        <th data-field="flag">Flag</th>
         <th data-field="country" data-sortable="true">State</th>
         <th data-field="confirmed">Confirmed</th>
         <th data-field="deaths">Deaths</th>
@@ -18,6 +19,7 @@
     <tbody class="rowlink">
       {% for country in table %}
       <tr>
+        <td> <a href="/country/MX/{{ country['iso'] }}"></a> <img src="https://www.countryflags.io/{{ country['iso'] }}/shiny/32.png" onerror="this.style.display='none'"> </td>
         <td> {{ country['country'] }} </td>
         <td> {{ country['confirmed'] }} </td>
         <td> {{ country['deaths'] }} </td>
