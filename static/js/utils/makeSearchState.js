@@ -10,7 +10,7 @@ $(document).ready(function(){
       $.each(data, function(key, value){
        if (value.country.search(expression) != -1)
        {
-        var url = 'href=country/'+value.iso+' '
+        var url = 'href=country/MX/'+value.iso+' '
         var flag = '<img src = https://www.countryflags.io/'+value.iso+'/shiny/32.png> '
         $('#result').append('<a '+url+'class="list-group-item list-group-item-action">'+ flag + value.country + '</a>');
        }
