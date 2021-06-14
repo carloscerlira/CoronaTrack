@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% from "macros/dailyInfoState.html" import dailyInfoState %}
+{% block content %}
+<script>
+    var data = {{ data | safe }};
+    var general = data['general'];
+    var time_series = data['time_series'];
+</script>
+
+{{ dailyInfoState(data['general']) }}
+<hr>
+<figure class="highcharts-figure">
+    <div id="confirmedChart" style="max-width: 800px; margin:0 auto;"></div> 
+    <div id="dailyConfirmedChart" style="max-width: 800px; margin:0 auto;"></div>
+    <div id="dailyDeathsChart" style="max-width: 800px; margin:0 auto;"></div> 
+</figure>
+
+<script src="{{ url_for('static', filename='js/charts/confirmedChart.js') }}"> </script>
+<script src="{{ url_for('static', filename='js/charts/dailyConfirmedChart.js') }}"> </script>
+<script src="{{ url_for('static', filename='js/charts/dailyDeathsChart.js') }}"> </script>
+{% endblock %}

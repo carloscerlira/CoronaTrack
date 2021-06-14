@@ -1,0 +1,30 @@
+{% macro dailyInfoState(daily_data) %}
+<div class="row">
+  <div class="col-sm text-center">
+    <td><img src="https://www.countryflags.io/{{ daily_data['iso'] }}/shiny/64.png" onerror="this.style.display='none'">
+    <p><span style="font-size: 28px"><strong>
+        {{ daily_data['country'] }} 
+    </strong></span></p>
+  </div>
+</div>
+<div class="row">
+  {% for metric in ['confirmed', 'deaths'] %}
+  <div class="col-sm text-center">
+    <p class="title", style="font-size: 20px; line-height: 120%;"> 
+      <strong> {{ metric.capitalize() }} </strong> 
+      </br> 
+      <span style="font-size: 18px;"> 
+        {{ daily_data[metric] }} 
+      </span>
+      </br>
+      <span style="font-size: 16px;">
+        <i class="fas fa-angle-up fa-sm"></i> {{ daily_data['daily_'+metric] }}
+      </span>
+    </p>
+  </div>  
+  {% endfor %}
+</div>
+<p><span style="font-size:12px; text-align:end; font-style:italic;"> 
+  Last Update: {{ daily_data['last_update'] }} GMT <br> 
+</span></p>
+{% endmacro %}

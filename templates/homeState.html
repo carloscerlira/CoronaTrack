@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% from "macros/dailyInfoState.html" import dailyInfoState %}
+{% from "utils/makeSearchState.html" import makeSearchState %}
+{% from "utils/makeTableState.html" import makeTableState %}
+{% block content %}
+
+{{ dailyInfoState(table[0]) }}
+<figure class="highcharts-figure">
+    <div id="bubbleChart" style="width: 400px; height: 400px; float:left; margin:0 auto;"></div> 
+    <div id="bubbleVaccineChart" style="max-width: 400px; margin:0 auto;"></div> 
+</figure>
+<p style="font-size: 28px;"> <i class="fas fa-search"></i> <strong> Search State </strong> </p>
+{{ makeSearchState() }}
+<p style="font-size: 28px;"> <i class="fas fa-chart-area"></i> <strong> Overview </strong> </p>
+{{ makeTableState(table) }}
+
+<script src="{{ url_for('static', filename='js/charts/bubbleChart.js') }}"> </script>
+<script src="{{ url_for('static', filename='js/charts/bubbleVaccineChart.js') }}"> </script>
+{% endblock %}

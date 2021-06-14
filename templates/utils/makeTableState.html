@@ -1,0 +1,31 @@
+{% macro makeTableState(table) %}
+<div class="table-striped" style="font-family: 'Roboto';">
+  <table 
+  data-toggle="table"
+  data-pagination="true"
+  data-page-list="[10]"
+  data-sort-name="name"
+  data-sort-order="desc"
+  data-link="row"
+  >
+    <thead>
+      <tr>
+        <th data-field="flag">Flag</th>
+        <th data-field="country" data-sortable="true">State</th>
+        <th data-field="confirmed">Confirmed</th>
+        <th data-field="deaths">Deaths</th>
+      </tr>
+    </thead>
+    <tbody class="rowlink">
+      {% for country in table %}
+      <tr>
+        <td> <a href="/country/MX/{{ country['iso'] }}"></a> <img src="https://www.countryflags.io/{{ country['iso'] }}/shiny/32.png" onerror="this.style.display='none'"> </td>
+        <td> {{ country['country'] }} </td>
+        <td> {{ country['confirmed'] }} </td>
+        <td> {{ country['deaths'] }} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endmacro %}
